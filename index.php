@@ -1,15 +1,24 @@
+<?php
+include("auth.php");
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edusogno</title>
+    <meta charset="utf-8">
+    <title>Welcome Home</title>
+    <link rel="stylesheet" href="assets/styles/style.css" />
 </head>
 
 <body>
-
+    <div class="form">
+        <p>Benvenuto <?php echo $_SESSION['email']; ?>!</p>
+        <!-- work in progress -->
+        <p>Lista eventi</p>
+        <p><a href="dashboard.php">Dashboard</a></p>
+        <a href="logout.php">Logout</a>
+    </div>
 </body>
 
 </html>
