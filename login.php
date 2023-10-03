@@ -38,7 +38,7 @@ if (isset($_POST['email'])) {
 ?>
   <div class="form">
     <h1>Log In</h1>
-    <form action="" method="post" name="login">
+    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" name="login">
       <input type="email" name="email" placeholder="mariorossi@gmail.com" required />
       <input type="password" name="password" placeholder="Password" required />
       <input name="submit" type="submit" value="Login" />

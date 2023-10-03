@@ -1,5 +1,37 @@
 <?php
-include("auth.php");
+session_start();
+include __DIR__ . '/assets/db/db.php';
+include __DIR__ . '/auth.php';
+//cancella sessione dai cookie
+if (!isset($_SESSION['email'])) {
+    if (ini_get("session.use_cookies")) {
+        $params = session_get_cookie_params();
+        setcookie(
+            session_name(),
+            '',
+            time() - 42000,
+            $params["path"],
+            $params["domain"],
+            $params["secure"],
+            $params["httponly"]
+        );
+    }
+    session_destroy();
+    header("Location: login.php");
+}
+
+//recupero nome sessione corrente
+$sql = "SELECT `nome` FROM utenti WHERE `email` LIKE '%$_SESSION[email]%'; ";
+$result = $con->query($sql);
+if ($result && $result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $_SESSION['nome'] = $row['nome'];
+    }
+} elseif ($result) {
+    echo "no result";
+} else {
+    echo "query error";
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,10 +45,9 @@ include("auth.php");
 
 <body>
     <div class="form">
-        <p>Benvenuto <?php echo $_SESSION['email']; ?>!</p>
+        <p>Benvenuto <?php echo $_SESSION['nome'] ?> !</p>
         <!-- work in progress -->
-        <p>Lista eventi</p>
-        <p><a href="dashboard.php">Dashboard</a></p>
+        <p><a href="events.php">Lista eventi</a></p>
         <a href="logout.php">Logout</a>
     </div>
 </body>
