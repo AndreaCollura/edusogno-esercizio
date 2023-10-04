@@ -1,7 +1,5 @@
 <?php
 
-
-
 require('assets/db/db.php');
 // se il form é inviato, inserisci valori nel database
 if (isset($_REQUEST['email'])) {
@@ -23,11 +21,6 @@ VALUES ('$name', '$surname', '" . md5($password) . "', '$email')";
 }
 
 ?>
-
-
-
-
-
 
 
 <!DOCTYPE html>

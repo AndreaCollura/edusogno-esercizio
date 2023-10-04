@@ -46,7 +46,6 @@ if ($result && $result->num_rows > 0) {
 <body>
   <div class="form">
     <p>Ciao <?php echo $_SESSION['nome'] ?> !</p>
-    <!-- work in progress -->
     <p><a href="events-admin.php">Lista eventi</a></p>
     <a href="logout.php">Logout</a>
   </div>
