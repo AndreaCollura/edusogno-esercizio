@@ -1,5 +1,7 @@
 <?php
 
+
+
 require('assets/db/db.php');
 // se il form é inviato, inserisci valori nel database
 if (isset($_REQUEST['email'])) {
@@ -11,15 +13,35 @@ if (isset($_REQUEST['email'])) {
   $password = stripslashes($_REQUEST['password']);
   $password = mysqli_real_escape_string($con, $password);
   $query = "INSERT into `utenti` (nome, cognome, password, email)
-VALUES ('$name', '$surname',  '" . md5($password) . "', '$email')";
+VALUES ('$name', '$surname', '" . md5($password) . "', '$email')";
   $result = mysqli_query($con, $query);
   if ($result) {
     header("Location: register-success.php");
   }
 } else {
+  echo `<p>Qualcosa è andato storto!</p>`;
+}
+
 ?>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrazione Utente</title>
+</head>
+
+<body>
   <div class="form">
-    <h1>Registration</h1>
+    <h1>Registrazione Utente</h1>
     <form name="registration" action="" method="post">
       <input type="text" name="nome" placeholder="Mario" required />
       <input type="text" name="cognome" placeholder="Rossi" required />
@@ -28,4 +50,6 @@ VALUES ('$name', '$surname',  '" . md5($password) . "', '$email')";
       <input type="submit" name="submit" value="Register" />
     </form>
   </div>
-<?php } ?>
+</body>
+
+</html>

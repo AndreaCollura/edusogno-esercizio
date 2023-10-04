@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 include __DIR__ . '/assets/db/db.php';
 include __DIR__ . '/auth.php';
 //cancella sessione dai cookie
@@ -20,7 +21,6 @@ if (!isset($_SESSION['email'])) {
 
     header("Location: login.php");
 }
-
 //recupero nome sessione corrente
 $sql = "SELECT `nome` FROM utenti WHERE `email` LIKE '%$_SESSION[email]%'; ";
 $result = $con->query($sql);
@@ -33,6 +33,7 @@ if ($result && $result->num_rows > 0) {
 } else {
     echo "query error";
 }
+
 ?>
 
 <!DOCTYPE html>
