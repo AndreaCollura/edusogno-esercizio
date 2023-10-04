@@ -21,7 +21,8 @@ if (isset($_POST['email'])) {
   $password = stripslashes($_REQUEST['password']);
   $password = mysqli_real_escape_string($con, $password);
   //controllo se utente già presente
-  $query = "SELECT * FROM `utenti` WHERE email='$email' and password = '" . md5($password) . "'";
+  $newPassword = md5($password);
+  $query = "SELECT * FROM `utenti` WHERE email='$email' and password = '" . $newPassword . "'";
   $result = mysqli_query($con, $query) or die(mysqli_error($con));
   $rows = mysqli_num_rows($result);
   if ($rows == 1) {
@@ -44,6 +45,7 @@ if (isset($_POST['email'])) {
       <input name="submit" type="submit" value="Login" />
     </form>
     <p>Non ancora registrato? <a href='register.php'>Registrati qui!</a></p>
+    <a href="forgot-password.php">Password dimenticata?</a>
   </div>
 <?php } ?>
 
