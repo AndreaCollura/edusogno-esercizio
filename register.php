@@ -14,9 +14,7 @@ if (isset($_REQUEST['email'])) {
 VALUES ('$name', '$surname',  '" . md5($password) . "', '$email')";
   $result = mysqli_query($con, $query);
   if ($result) {
-    echo "<div class='form'>
-<h3>You are registered successfully.</h3>
-<br/>Click here to <a href='login.php'>Login</a></div>";
+    header("Location: register-success.php");
   }
 } else {
 ?>

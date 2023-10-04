@@ -17,6 +17,7 @@ if (!isset($_SESSION['email'])) {
         );
     }
     session_destroy();
+
     header("Location: login.php");
 }
 
@@ -45,7 +46,7 @@ if ($result && $result->num_rows > 0) {
 
 <body>
     <div class="form">
-        <p>Benvenuto <?php echo $_SESSION['nome'] ?> !</p>
+        <p>Ciao <?php echo $_SESSION['nome'] ?> !</p>
         <!-- work in progress -->
         <p><a href="events.php">Lista eventi</a></p>
         <a href="logout.php">Logout</a>

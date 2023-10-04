@@ -7,7 +7,6 @@ $mail = strval($_SESSION['email']);
 $sql = "SELECT * FROM `eventi` WHERE `attendees` LIKE '%$mail%'; ";
 
 $result = $con->query($sql);
-var_dump($result);
 if ($result && $result->num_rows > 0) {
   while ($row = $result->fetch_assoc()) {
     echo "nome " . $row['nome_evento'] . " data: " . $row['data_evento'];
