@@ -7,7 +7,7 @@ $newResult = mysqli_query($con, $newSql);
 if ($newResult) {
   $row = mysqli_fetch_assoc($newResult);
   $is_admin = $row['is_admin'];
-  var_dump($is_admin);
+  //var_dump($is_admin);
   if (!isset($_SESSION['email']) || $is_admin === NULL) {
     header("location: login.php");
   };
@@ -15,8 +15,8 @@ if ($newResult) {
 
 $mail = strval($_SESSION['email']);
 //seleziono tutti gli eventi che contengono la mail di sessione
-$sql = "SELECT * FROM `eventi`";
-$result = $con->query($sql);
+$sqlEvent = "SELECT * FROM `eventi`";
+$result = $con->query($sqlEvent);
 
 ?>
 
@@ -24,50 +24,59 @@ $result = $con->query($sql);
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <link rel="stylesheet" href="assets/styles/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Event Admin Pannel</title>
 </head>
 
 <body>
-  <div class="">
-    <?php
-    if (isset($_GET["msg"])) {
-      $msg = $_GET["msg"];
-      echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+
+  <?php include("./layouts/partials/header.php"); ?>
+
+
+  <div class="wrapper">
+    <div class="container-list">
+      <?php
+      if (isset($_GET["msg"])) {
+        $msg = $_GET["msg"];
+        echo '<p class="success-msg">
       ' . $msg . '
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>';
-    }
-    ?>
-    <a href="./layouts/admin-CRUD/add-new.php" class="">nuovo evento</a>
-    <table class="">
-      <thead class="">
-        <tr>
-          <th scope="col">Studente</th>
-          <th scope="col">nome evento</th>
-          <th scope="col">data evento</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        $sql = "SELECT * FROM `eventi`";
-        $result = mysqli_query($con, $sql);
-        while ($row = mysqli_fetch_assoc($result)) {
-        ?>
+    </p>';
+      }
+      ?>
+      <button class="addnew-btn"><a class="event-button" href="add-new.php">nuovo evento</a></button>
+      <table class="style-table">
+        <thead>
           <tr>
-            <td><?php echo $row["attendees"] ?></td>
-            <td><?php echo $row["nome_evento"] ?></td>
-            <td><?php echo $row["data_evento"] ?></td>
-            <td>
-              <a href="./layouts/admin-CRUD/edit.php?id=<?php echo $row["id"] ?>" class="">edit</a>
-              <a href="./layouts/admin-CRUD/delete.php?id=<?php echo $row["id"] ?>" class="">delete</a>
-            </td>
+            <th scope="col">Utente</th>
+            <th scope="col">nome evento</th>
+            <th scope="col">data evento</th>
           </tr>
-        <?php
-        }
-        ?>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <?php
+          while ($row = mysqli_fetch_assoc($result)) {
+          ?>
+            <tr>
+              <td><?php echo $row["attendees"] ?></td>
+              <td><?php echo $row["nome_evento"] ?></td>
+              <td><?php echo $row["data_evento"] ?></td>
+              <td>
+                <button class="edit-btn">
+                  <a class="event-button" href="edit.php?id=<?php echo $row["id"] ?>" class=""><i class="fa-solid fa-pen-to-square"></i></a>
+                </button>
+                <button class="delete-btn">
+                  <a class="event-button" href="delete.php?id=<?php echo $row["id"] ?>" class=""><i class="fa-solid fa-trash "></i></a>
+                </button>
+
+              </td>
+            </tr>
+          <?php
+          }
+          ?>
+        </tbody>
+      </table>
+    </div>
   </div>
 
 

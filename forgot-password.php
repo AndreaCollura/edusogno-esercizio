@@ -8,6 +8,8 @@
 
 <body>
 
+  <?php include("./layouts/partials/header.php"); ?>
+
   <h1>Recupero password</h1>
 
   <form method="post" action="send-password-reset.php">
