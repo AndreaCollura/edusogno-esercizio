@@ -55,10 +55,18 @@ if ($result && $result->num_rows > 0) {
 </head>
 
 <body>
-  <div class="form">
-    <p>Ciao <?php echo $_SESSION['nome'] ?> !</p>
-    <p><a href="events-admin.php">Lista eventi</a></p>
-    <a href="logout.php">Logout</a>
+
+  <?php include("./layouts/partials/header.php"); ?>
+
+  <div class="wrapper">
+    <h1 class="wrapper-h1">Ciao Admin <?php echo $_SESSION['nome'] ?> !</h1>
+    <div class="container">
+      <p>ADMIN MODE</p>
+
+      <button><a class="event-button" href="events-admin.php">GESTIONE EVENTI</a></button>
+      <button><a class="event-button" href="logout.php">Logout</a></button>
+
+    </div>
   </div>
 </body>
 

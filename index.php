@@ -2,7 +2,6 @@
 session_start();
 
 include __DIR__ . '/assets/db/db.php';
-include __DIR__ . '/auth.php';
 //cancella sessione dai cookie
 if (!isset($_SESSION['email'])) {
     if (ini_get("session.use_cookies")) {
@@ -46,11 +45,20 @@ if ($result && $result->num_rows > 0) {
 </head>
 
 <body>
-    <div class="form">
-        <p>Ciao <?php echo $_SESSION['nome'] ?> !</p>
-        <!-- work in progress -->
-        <p><a href="events.php">Lista eventi</a></p>
-        <a href="logout.php">Logout</a>
+
+    <?php include("./layouts/partials/header.php"); ?>
+
+    <div class="wrapper">
+        <h1 class="wrapper-h1">Ciao <?php echo $_SESSION['nome'] ?> !</h1>
+        <div class="container">
+            <p>Questa é la tua area personale</p>
+            <p>dove puoi controllare tutti i tuoi eventi...</p>
+            <button><a class="event-button" href="events.php">Lista eventi</a></button>
+            <button>
+                <a class="event-button" href="logout.php">Logout</a>
+            </button>
+
+        </div>
     </div>
 </body>
 
