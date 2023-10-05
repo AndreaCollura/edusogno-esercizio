@@ -8,6 +8,9 @@
 </head>
 
 <body>
+
+  <?php include("./layouts/partials/header.php"); ?>
+
   <h1>Registrazione completata!</h1>
   <p>effettua il Login <a href="login.php">qui</a></p>
 

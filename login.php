@@ -63,10 +63,12 @@ if (isset($_POST['email'])) {
   <title>Document</title>
 </head>
 
-<?php include("./layouts/partials/header.php"); ?>
 
 
 <body>
+
+  <?php include("./layouts/partials/header.php"); ?>
+
   <div class="wrapper">
     <h1 class="wrapper-h1">Hai già un account?</h1>
     <div class="container">

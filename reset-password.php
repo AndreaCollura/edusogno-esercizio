@@ -43,6 +43,9 @@ if (strtotime($user["reset_token_expires_at"]) <= time()) {
 </head>
 
 <body>
+
+  <?php include("./layouts/partials/header.php"); ?>
+
   <h1>Reset Password</h1>
 
   <form method="post" action="process-reset-password.php">

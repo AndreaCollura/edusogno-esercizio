@@ -29,19 +29,34 @@ VALUES ('$name', '$surname', '" . md5($password) . "', '$email')";
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/styles/style.css" />
   <title>Registrazione Utente</title>
 </head>
 
 <body>
-  <div class="form">
-    <h1>Registrazione Utente</h1>
-    <form name="registration" action="" method="post">
-      <input type="text" name="nome" placeholder="Mario" required />
-      <input type="text" name="cognome" placeholder="Rossi" required />
-      <input type="email" name="email" placeholder="mariorossi@gmail.com" required />
-      <input type="password" name="password" placeholder="Password" required />
-      <input type="submit" name="submit" value="Register" />
-    </form>
+
+  <?php include("./layouts/partials/header.php"); ?>
+
+
+  <div class="wrapper">
+    <h1 class="wrapper-h1">Crea il tuo account</h1>
+    <div class="container">
+      <form name="registration" action="" method="post">
+        <label class="form__label" for="nome">Inserisci l'email</label>
+        <input class="form__field" type="nome" name="nome" placeholder="mario" required />
+        <label class="form__label" for="cognome">Inserisci l'email</label>
+        <input class="form__field" type="cognome" name="cognome" placeholder="rossi" required />
+        <label class="form__label" for="email">Inserisci l'email</label>
+        <input class="form__field" type="email" name="email" placeholder="mariorossi@gmail.com" required />
+        <label class="form__label" for="password">Inserisci la password</label>
+        <input class="form__field" type="password" name="password" placeholder="Password" required />
+        <button name="submit" type="submit" value="register">RIGISTRATI</button>
+      </form>
+      <p>Non ancora registrato? <a href='register.php'>Registrati qui!</a></p>
+      <a href="forgot-password.php">Password dimenticata?</a>
+
+    </div>
+
   </div>
 </body>
 

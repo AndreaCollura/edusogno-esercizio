@@ -7,7 +7,14 @@
   <title>Document</title>
 </head>
 
+
+
+
 <body>
+
+  <?php include("./layouts/partials/header.php"); ?>
+
+
   <div class='form'>
     <h3>L'Email o la password non corrisponde!</h3>
     <p>Clicca qui per il <a href='login.php'>Login</a></p>
