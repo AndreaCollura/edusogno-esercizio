@@ -7,7 +7,7 @@ $newResult = mysqli_query($con, $newSql);
 if ($newResult) {
   $row = mysqli_fetch_assoc($newResult);
   $is_admin = $row['is_admin'];
-  var_dump($is_admin);
+  //var_dump($is_admin);
   if (!isset($_SESSION['email']) || $is_admin === NULL) {
     header("location: login.php");
   };

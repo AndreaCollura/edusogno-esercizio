@@ -59,20 +59,31 @@ if (isset($_POST['email'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/styles/style.css" />
   <title>Document</title>
 </head>
 
+<?php include("./layouts/partials/header.php"); ?>
+
+
 <body>
-  <div class="form">
-    <h1>Log In</h1>
-    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" name="login">
-      <input type="email" name="email" placeholder="mariorossi@gmail.com" required />
-      <input type="password" name="password" placeholder="Password" required />
-      <input name="submit" type="submit" value="Login" />
-    </form>
-    <p>Non ancora registrato? <a href='register.php'>Registrati qui!</a></p>
-    <a href="forgot-password.php">Password dimenticata?</a>
+  <div class="wrapper">
+    <h1 class="wrapper-h1">Hai già un account?</h1>
+    <div class="container">
+      <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" name="login">
+        <label class="form__label" for="email">Inserisci l'email</label>
+        <input class="form__field" type="email" name="email" placeholder="mariorossi@gmail.com" required />
+        <label class="form__label" for="password">Inserisci la password</label>
+        <input class="form__field" type="password" name="password" placeholder="Password" required />
+        <button name="submit" type="submit" value="Login">ACCEDI</button>
+      </form>
+      <p>Non ancora registrato? <a href='register.php'>Registrati qui!</a></p>
+      <a href="forgot-password.php">Password dimenticata?</a>
+
+    </div>
+
   </div>
+
 </body>
 
 </html>
