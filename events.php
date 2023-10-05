@@ -2,6 +2,10 @@
 session_start();
 include __DIR__ . '/assets/db/db.php';
 
+if (!isset($_SESSION['email'])) {
+  header("location: login.php");
+};
+
 $mail = strval($_SESSION['email']);
 //seleziono tutti gli eventi che contengono la mail di sessione
 $sql = "SELECT * FROM `eventi` WHERE `attendees` LIKE '%$mail%'; ";

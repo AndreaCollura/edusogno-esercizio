@@ -2,14 +2,21 @@
 session_start();
 include __DIR__ . '/assets/db/db.php';
 
+$newSql = "SELECT `is_admin` FROM utenti WHERE `email` LIKE '%$_SESSION[email]%'; ";
+$newResult = mysqli_query($con, $newSql);
+if ($newResult) {
+  $row = mysqli_fetch_assoc($newResult);
+  $is_admin = $row['is_admin'];
+  var_dump($is_admin);
+  if (!isset($_SESSION['email']) || $is_admin === NULL) {
+    header("location: login.php");
+  };
+}
+
 $mail = strval($_SESSION['email']);
 //seleziono tutti gli eventi che contengono la mail di sessione
 $sql = "SELECT * FROM `eventi`";
-
 $result = $con->query($sql);
-
-
-
 
 ?>
 

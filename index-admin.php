@@ -1,6 +1,17 @@
 <?php
 session_start();
 include __DIR__ . '/assets/db/db.php';
+
+$newSql = "SELECT `is_admin` FROM utenti WHERE `email` LIKE '%$_SESSION[email]%'; ";
+$newResult = mysqli_query($con, $newSql);
+if ($newResult) {
+  $row = mysqli_fetch_assoc($newResult);
+  $is_admin = $row['is_admin'];
+  var_dump($is_admin);
+  if (!isset($_SESSION['email']) || $is_admin === NULL) {
+    header("location: login.php");
+  };
+}
 //cancella sessione dai cookie
 if (!isset($_SESSION['email'])) {
   if (ini_get("session.use_cookies")) {

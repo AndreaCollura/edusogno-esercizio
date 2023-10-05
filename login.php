@@ -29,6 +29,7 @@ if (isset($_POST['email'])) {
         }
         if ($is_admin) {
           $_SESSION['email'] = $email;
+          $is_admin = $row['is_admin'];
           // reindirizza utente a index-admin.php
           header("Location: index-admin.php");
           exit();
@@ -36,7 +37,6 @@ if (isset($_POST['email'])) {
           $_SESSION['email'] = $email;
           // reindirizza utente a index.php
           header("Location: index.php");
-          var_dump($is_admin);
           exit();
         }
       }
