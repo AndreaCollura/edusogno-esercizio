@@ -5,11 +5,16 @@
 }
 
 body {
+  
   font-family: arial;
-  background-color: #d9e5f2;
+  background-image: url("../img/bg-img.png");
+  background-repeat: no-repeat;
+  background-size: 100% 90%;
+
+  background-position: bottom;
+
+  
 }
-
-
 
 .navbar{
   width: 100vw;
@@ -19,6 +24,18 @@ body {
   border: 1px solid black;
   border-radius: 0 0 10px 10px;
   box-shadow: #a9c4f6 0px 10px 20px, #a9c4f6 0px 6px 6px;
+  
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
   
 }
 
@@ -49,17 +66,13 @@ body {
   margin-bottom: 10px;
   font-size: 1.6rem;
   text-transform: capitalize;
-
 }
-
-
 
 .event-button{
   text-decoration: none;
   color: white;
   font-size: .9rem;
   text-transform: uppercase;
-  
 }
 
 .addnew-btn{
@@ -79,18 +92,6 @@ body {
   width: 40px;
 }
 
-.wrapper {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  
-}
-
-
 .container{
   width: 40%;
   height: auto;
@@ -102,7 +103,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .container-list{
@@ -112,7 +112,6 @@ body {
   padding: 30px;
   border: 1px solid #6480a5;
   background-color: white;
-
 }
 
 .event-display{
@@ -122,7 +121,6 @@ body {
   margin-top: 30px;
   justify-content: center;
   gap: 20px;
-  
 }
 
 .container-event{
@@ -135,11 +133,7 @@ body {
   display: flex;
   flex-flow: column;
   gap: 15px;
-
 }
-
-
-
 
 .form__field {
   font-family: inherit;
@@ -149,9 +143,7 @@ body {
   outline: 0;
   font-size: 1.3rem;
   margin: 20px 0
-
 }
-
 
 .form__label {
   font-size: 1rem;
@@ -163,7 +155,6 @@ body {
   color: green;
 }
 
-
 button{
   width: 100%;
   min-height: 50px;
@@ -174,16 +165,12 @@ button{
   border-radius: 10px;
   color: white;
   margin: 10px auto;
-
 }
-
 
 .logo{
   max-width: 120px;
   margin-top: 20px;
   margin-left: 30px;
-
-
 }
 
 img{
