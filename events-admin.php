@@ -66,9 +66,11 @@ $result = $con->query($sqlEvent);
                   <a class="event-button" href="edit.php?id=<?php echo $row["id"] ?>" class=""><i class="fa-solid fa-pen-to-square"></i></a>
                 </button>
                 <button class="delete-btn">
-                  <a class="event-button" href="delete.php?id=<?php echo $row["id"] ?>" class=""><i class="fa-solid fa-trash "></i></a>
+                  <!-- richiesta conferma eliminazione -->
+                  <?php
+                  echo "<a onClick=\" javascript:return confirm(' Eliminare evento selezionato? '); \" class='event-button' href='delete.php?id={$row['id']}'><i class='fa-solid fa-trash '></i></a>"
+                  ?>
                 </button>
-
               </td>
             </tr>
           <?php
@@ -78,8 +80,6 @@ $result = $con->query($sqlEvent);
       </table>
     </div>
   </div>
-
-
 </body>
 
 </html>
