@@ -14,18 +14,13 @@
   <?php include("./layouts/partials/header.php"); ?>
 
   <div class="wrapper">
-    <h1 class="wrapper-h1">Crea il tuo account</h1>
+    <h1 class="wrapper-h1">L'Email utilizzata è già presente nel nostro archivio!</h1>
     <div class="container">
       <div>
-        <h3>L'Email o la password non corrisponde!</h3>
-        <p>Clicca qui per il <a href='login.php'>Login</a></p>
+        <p>Clicca qui per riprovare la registrazione con nuova email <a href='register.php'>REGISTRATI!</a></p>
       </div>
-
     </div>
-
   </div>
-
-
 </body>
 
 </html>

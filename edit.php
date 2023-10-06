@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
   $result = mysqli_query($con, $sql);
 
   if ($result) {
-    header("Location: events-admin.php?msg=Data updated successfully
+    header("Location: events-admin.php?msg=Dati aggiornati con successo!
     ");
   } else {
     echo "Failed: " . mysqli_error($con);

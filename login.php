@@ -15,9 +15,8 @@ if (isset($_POST['email'])) {
   $result = mysqli_query($con, $query) or die(mysqli_error($con));
   $rows = mysqli_num_rows($result);
 
-  //controllo quante rows ha il risultato
+
   if ($rows == 1) {
-    //controllo se utente esistente
     if ($result && $result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
         $_SESSION['email'] = $email;
@@ -46,7 +45,7 @@ if (isset($_POST['email'])) {
       echo "query error";
     }
   } else {
-    header("Location: error_page.php");
+    header("Location: login-error.php");
     exit();
   }
 }

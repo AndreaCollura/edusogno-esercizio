@@ -13,7 +13,7 @@ if (isset($_POST["submit"])) {
   $result = mysqli_query($con, $sql);
 
   if ($result) {
-    header("Location: events-admin.php?msg=New record created successfully");
+    header("Location: events-admin.php?msg=Nuovo evento creato con successo!");
   } else {
     echo "Failed: " . mysqli_error($con);
   }
