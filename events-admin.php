@@ -35,6 +35,7 @@ $result = $con->query($sqlEvent);
 
 
   <div class="wrapper">
+    <h1 class="wrapper-h1">Gestione eventi</h1>
     <div class="container-list">
       <?php
       if (isset($_GET["msg"])) {

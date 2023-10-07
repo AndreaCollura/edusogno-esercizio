@@ -20,16 +20,14 @@ $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
 if ($user === null) {
-  die("token not found");
+  die("Token non trovato");
 }
 
 if (strtotime($user["reset_token_expires_at"]) <= time()) {
-  die("token has expired");
+  die("Token scaduto");
 }
 
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -38,28 +36,30 @@ if (strtotime($user["reset_token_expires_at"]) <= time()) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="/assets/js/validation.js" defer></script>
-  <title>reset password</title>
+  <link rel="stylesheet" href="assets/styles/style.css" />
+  <title>Reset Password </title>
 </head>
 
 <body>
 
-  <?php include("./layouts/partials/header.php"); ?>
+  <?php include("layouts/partials/header.php"); ?>
+  <div class="wrapper">
+    <h1 class='wrapper-h1'>Inserisci nuova password</h1>
+    <div class="container">
+      <form method="post" action="process-reset-password.php">
 
-  <h1>Reset Password</h1>
+        <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
 
-  <form method="post" action="process-reset-password.php">
+        <label class="form__label" for="password">Nuova password</label>
+        <input class="form__field" type="password" id="password" name="password">
 
-    <input type="hidden" name="token" value="<?= htmlspecialchars($token) ?>">
+        <label class="form__label" for="password_confirmation">ripeti password</label>
+        <input class="form__field" type="password" id="password_confirmation" name="password_confirmation">
 
-    <label for="password">Nuova password</label>
-    <input type="password" id="password" name="password">
-
-    <label for="password_confirmation">ripeti password</label>
-    <input type="password" id="password_confirmation" name="password_confirmation">
-
-    <button>invia</button>
-  </form>
+        <button>invia</button>
+      </form>
+    </div>
+  </div>
 </body>
 
 </html>

@@ -42,11 +42,11 @@ if (isset($_POST["submit"])) {
     <h1 class="wrapper-h1">Crea nuovo evento</h1>
     <div class="container">
       <form action="" method="POST">
-        <label class="form-label">mail studente</label>
-        <input class="form__field" type="email" name="attendees" placeholder="Studenti">
-        <label class="form-label">Nome Evento</label>
+        <label class="form__label">mail studente</label>
+        <textarea class="form__field" type="email" name="attendees" placeholder="Studenti"></textarea>
+        <label class="form__label">Nome Evento</label>
         <input class="form__field" type="text" name="nome_evento" placeholder="nome evento">
-        <label class="form-label">First Name:</label>
+        <label class="form__label">First Name:</label>
         <input class="form__field" type="datetime-local" name="data_evento" placeholder="data evento" value="2018-06-12T19:30" min="2018-06-07T00:00" max="2050-06-14T00:00">
 
         <button type="submit" name="submit">SALVA</button>
