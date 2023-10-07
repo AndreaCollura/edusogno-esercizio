@@ -6,3 +6,5 @@ ALTER TABLE utenti
 
   ALTER TABLE utenti
   ADD `is_admin` tinyint(1) NULL DEFAULT NULL;
+
+ /*  dare valore in tabella 'utenti' di 'is_admin'= 1 per poter accedere alla sezione admin */

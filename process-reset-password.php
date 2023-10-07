@@ -20,27 +20,27 @@ $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
 if ($user === null) {
-  die("token not found");
+  die("Token non trovato");
 }
 
 if (strtotime($user["reset_token_expires_at"]) <= time()) {
-  die("token has expired");
+  die("Token scaduto");
 }
 
 if (strlen($_POST["password"]) < 8) {
-  die("Password must be at least 8 characters");
+  die("La password deve contenere almeno 8 caratteri");
 }
 
 if (!preg_match("/[a-z]/i", $_POST["password"])) {
-  die("Password must contain at least one letter");
+  die("La password deve contenere almeno una lettera!");
 }
 
 if (!preg_match("/[0-9]/", $_POST["password"])) {
-  die("Password must contain at least one number");
+  die("La password deve contenere almeno un numero!");
 }
 
 if ($_POST["password"] !== $_POST["password_confirmation"]) {
-  die("Passwords must match");
+  die("Le password devono combaciare!");
 }
 
 $password_hash = md5($_POST["password"]);
@@ -58,4 +58,31 @@ $stmt->bind_param("ss", $password_hash, $user["id"]);
 
 $stmt->execute();
 
-echo "Password aggiornata con successo!.";
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/styles/style.css" />
+  <title>Reset Password </title>
+</head>
+
+<body>
+
+  <?php include("layouts/partials/header.php"); ?>
+  <div class="wrapper">
+    <div class="container">
+      <h3>Password aggiornata con successo! Torna al <a href='login.php'>Login</a></h3>
+      <button>
+      </button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>

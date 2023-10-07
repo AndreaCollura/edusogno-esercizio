@@ -8,22 +8,19 @@
   <title>Document</title>
 </head>
 
+
 <body>
 
   <?php include("./layouts/partials/header.php"); ?>
 
   <div class="wrapper">
-    <h1 class="wrapper-h1">recupero password</h1>
+    <h1 class="wrapper-h1">L'Email inserita non è presente nei nosti archivi!</h1>
     <div class="container">
-      <form method="post" action="send-password-reset.php">
-        <label class="form__label" for="email">email</label>
-        <input class="form__field" type="email" name="email" id="email">
-        <button class="event-button">invia</button>
-      </form>
+      <div>
+        <p>Clicca qui per riprovare con nuova email <a href='forgot-password.php'>password reset!</a></p>
+      </div>
     </div>
   </div>
-
-
 </body>
 
 </html>
